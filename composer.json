@@ -1,0 +1,19 @@
+{
+    "name": "il4mb/db",
+    "description": "Simple database interface",
+    "autoload": {
+        "psr-4": {
+            "Il4mb\\Db\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ilham b",
+            "email": "durianbohong@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+        "doctrine/sql-formatter": "^1.5"
+    }
+}
