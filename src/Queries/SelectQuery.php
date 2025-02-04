@@ -1,13 +1,13 @@
 <?php
 
-namespace Il4mb\Db\Queries;
+namespace Il4mb\SSQL\Queries;
 
 use Doctrine\SqlFormatter\SqlFormatter as SqlFormatterSqlFormatter;
-use Il4mb\Db\Abstract\Queriable;
-use Il4mb\Db\Columns\Column;
-use Il4mb\Db\Join;
-use Il4mb\Db\Queries\WhereQuery;
-use Il4mb\Db\Table;
+use Il4mb\SSQL\Abstract\Queriable;
+use Il4mb\SSQL\Columns\Column;
+use Il4mb\SSQL\Queries\WhereQuery;
+use Il4mb\SSQL\Cores\Join;
+use Il4mb\SSQL\Cores\Table;
 use ReflectionClass;
 
 class SelectQuery implements Queriable

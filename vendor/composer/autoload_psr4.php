@@ -6,6 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Il4mb\\Db\\' => array($baseDir . '/src'),
+    'Il4mb\\SSQL\\' => array($baseDir . '/src'),
     'Doctrine\\SqlFormatter\\' => array($vendorDir . '/doctrine/sql-formatter/src'),
 );

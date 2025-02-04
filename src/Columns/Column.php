@@ -1,9 +1,9 @@
 <?php
 
-namespace Il4mb\Db\Columns;
+namespace Il4mb\SSQL\Columns;
 
-use Il4mb\Db\Abstract\Queriable;
-use Il4mb\Db\Table;
+use Il4mb\SSQL\Abstract\Queriable;
+use Il4mb\SSQL\Cores\Table;
 
 class Column implements Queriable
 {
@@ -20,7 +20,7 @@ class Column implements Queriable
     {
         $prefix = $table ? ($table->alias ?? $table->name) . "." : "";
         $clause = $this->prop;
-    
+
         if (is_array($this->prop)) {
             $clause = implode(
                 ", ",
@@ -36,14 +36,14 @@ class Column implements Queriable
         } else {
             $clause = "{$prefix}{$this->prop}"; // Apply prefix only to normal strings
         }
-    
+
         if (!empty($this->alias)) {
             $clause = "{$clause} AS {$this->alias}";
         }
-    
+
         return preg_replace("/^\((.*?)\)$/", "$1", $clause);
     }
-    
+
 
     public function __call(string $method, array $args): static
     {
@@ -86,5 +86,16 @@ class Column implements Queriable
             $columns[] = is_string($key) ? new static($value, $key) : new static($value);
         }
         return $columns;
+    }
+
+    public static function arrayToQuery(array $columns): string
+    {
+        return implode(
+            ", ",
+            array_map(
+                fn(Column $col) => $col->toQuery(),
+                $columns
+            )
+        );
     }
 }

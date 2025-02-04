@@ -1,8 +1,8 @@
 <?php
 
-namespace Il4mb\Db;
+namespace Il4mb\SSQL\Cores;
 
-use Il4mb\Db\Queries\SelectQuery;
+use Il4mb\SSQL\Queries\SelectQuery;
 
 class Table
 {

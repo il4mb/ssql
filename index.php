@@ -1,9 +1,10 @@
 <?php
 
-use Il4mb\Db\Columns\JsonArray;
-use Il4mb\Db\Database;
-use Il4mb\Db\Queries\Query;
-use Il4mb\Db\Table;
+use Il4mb\SSQL\Columns\JsonArray;
+use Il4mb\SSQL\Database;
+use Il4mb\SSQL\Query;
+use Il4mb\SSQL\Cores\Table;
+use Doctrine\SqlFormatter\SqlFormatter as SqlFormatterSqlFormatter;
 
 ini_set("log_errors", 1);
 ini_set("error_log", "php-error.log");
@@ -22,17 +23,26 @@ function logger($text)
 
 require_once "vendor/autoload.php";
 
+$formatter = new SqlFormatterSqlFormatter(null);
+
 Database::init(__DIR__ . "/database.env.php");
 $db = Database::getInstance();
+
+$query = $db->with("top_users")->select(["users", "U"], ["name", "id"])->where("id", ">", 123);
+
+echo $formatter->format($query->toQuery());
+
+exit();
+
+
 
 $query = $db->table("transactions", "T")
     ->select([
         "*",
-        new JsonArray([
+        Query::jsonArray([
             "id" => "T.id",
             "name" => "T.name"
-        ], "I"),
-        Query::SUM("amount")->when("id", 123456)->then("hallo", 0)
+        ], "I")
     ])
     ->join(
         Table::leftJoin("users", "U")
@@ -45,3 +55,5 @@ $query = $db->table("transactions", "T")
     );
 
 $query->all();
+
+$SQL = "";

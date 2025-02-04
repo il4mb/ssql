@@ -1,8 +1,8 @@
 <?php
 
-namespace Il4mb\Db;
+namespace Il4mb\SSQL\Cores;
 
-use Il4mb\Db\Abstract\Queriable;
+use Il4mb\SSQL\Abstract\Queriable;
 use InvalidArgumentException;
 
 class Conditions implements Queriable

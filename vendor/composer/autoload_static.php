@@ -9,7 +9,7 @@ class ComposerStaticInite3aeac5d7b406864cbb36825a54b7906
     public static $prefixLengthsPsr4 = array (
         'I' => 
         array (
-            'Il4mb\\Db\\' => 9,
+            'Il4mb\\SSQL\\' => 11,
         ),
         'D' => 
         array (
@@ -18,7 +18,7 @@ class ComposerStaticInite3aeac5d7b406864cbb36825a54b7906
     );
 
     public static $prefixDirsPsr4 = array (
-        'Il4mb\\Db\\' => 
+        'Il4mb\\SSQL\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

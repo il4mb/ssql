@@ -1,7 +1,7 @@
 <?php
 
-namespace Il4mb\Db\Columns;
-use Il4mb\Db\Table;
+namespace Il4mb\SSQL\Columns;
+use Il4mb\SSQL\Cores\Table;
 
 class JsonArray extends Column
 {

@@ -1,9 +1,9 @@
 {
-    "name": "il4mb/db",
+    "name": "il4mb/ssql",
     "description": "Simple database interface",
     "autoload": {
         "psr-4": {
-            "Il4mb\\Db\\": "src/"
+            "Il4mb\\SSQL\\": "src/"
         }
     },
     "authors": [

@@ -1,9 +1,9 @@
 <?php
 
-namespace Il4mb\Db;
+namespace Il4mb\SSQL\Cores;
 
-use Il4mb\Db\Abstract\Queriable;
-use Il4mb\Db\Columns\Column;
+use Il4mb\SSQL\Abstract\Queriable;
+use Il4mb\SSQL\Columns\Column;
 
 class Join implements Queriable
 {

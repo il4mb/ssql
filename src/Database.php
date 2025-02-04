@@ -1,8 +1,10 @@
 <?php
 
-namespace Il4mb\Db;
+namespace Il4mb\SSQL;
 
-use Il4mb\Db\Queries\SelectQuery;
+use Il4mb\SSQL\Cores\Table;
+use Il4mb\SSQL\Queries\SelectQuery;
+use Il4mb\SSQL\Queries\WithQuery;
 use InvalidArgumentException;
 use PDO;
 use PDOException;
@@ -17,9 +19,7 @@ class Database extends PDO
     protected string $database;
     protected string $charset = "utf8";
 
-    private function __construct()
-    {
-    }
+    private function __construct() {}
 
 
     function table(string $table, string $alias = null): Table
@@ -27,6 +27,10 @@ class Database extends PDO
         return new Table($table, $alias);
     }
 
+    function with(string $define, ?string $alias = null)
+    {
+        return new WithQuery($define, $alias);
+    }
 
 
 

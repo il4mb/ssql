@@ -1,8 +1,8 @@
 <?php
 
-namespace Il4mb\Db\Abstract;
+namespace Il4mb\SSQL\Abstract;
 
-use Il4mb\Db\Table;
+use Il4mb\SSQL\Cores\Table;
 
 interface Queriable
 {
